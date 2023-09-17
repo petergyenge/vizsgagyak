@@ -28,7 +28,7 @@ server.get("/api/character", async (req: Request, res: Response) => {
   return res.json(bakeryData);
 });
 
-
+//////////////////////////////////////////// bakery
 server.get("/api/bakery", async (req: Request, res: Response) => {
   const characterData = await JSON.parse(
     fs.readFileSync("database/bakery.json", "utf-8")
@@ -36,7 +36,26 @@ server.get("/api/bakery", async (req: Request, res: Response) => {
   return res.json(characterData);
 });
 
+const cookieSchema = z.object({
+  cookieId: z.number(),
+  name: z.string(),
+});
 
+
+
+server.post("/api/favorite", (req: Request, res: Response) => {
+  const result = cookieSchema.safeParse(req.body);
+
+  if (!result.success) return res.status(400).json(result.error.issues);
+  const fileData = JSON.parse(fs.readFileSync("database/favoriteCookie.json", "utf-8"));
+
+
+  fileData.push({id: new Date().toISOString(), cookieId: result.data.cookieId});
+
+  fs.writeFileSync("database/favoriteCookie.json",JSON.stringify(fileData, null, 2),"utf-8");
+});
+
+//////////////////////////////////////////// bakery
 server.get("/api/refresh", async (req: Request, res: Response) => {
   const characterData = await JSON.parse(
     fs.readFileSync("database/liked.json", "utf-8")
