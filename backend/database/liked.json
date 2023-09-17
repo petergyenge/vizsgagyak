@@ -1,0 +1,32 @@
+[
+  {
+    "id": 60,
+    "userName": "teszt",
+    "characterName": "Pibbles Bodyguard"
+  },
+  {
+    "id": 61,
+    "userName": "ttt",
+    "characterName": "Fulgora"
+  },
+  {
+    "id": 63,
+    "characterName": "Mohawk Guy",
+    "userName": "tinsomes"
+  },
+  {
+    "id": 64,
+    "characterName": "Mohawk Guy",
+    "userName": "tinsomes"
+  },
+  {
+    "id": 65,
+    "characterName": "Mohawk Guy",
+    "userName": "tinsomes"
+  },
+  {
+    "id": 66,
+    "characterName": "Mohawk Guy",
+    "userName": "tinsomes"
+  }
+]
